@@ -35,4 +35,4 @@ jobs:
         python -m flake8 
     - name: Django tests
       run: |
-        python infra_project/infra_app/tests.py
+        python infra_project/manage.py test
