@@ -26,10 +26,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: install fkake8
+    - name: install flake8
       run: |
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
-    - name: Test with flake8 and django tests
+    - name: Test with flake8
       run: |
         # запуск проверки проекта по flake8
         python -m flake8 
+    - name: Django tests
+      run: |
+        python infra_project/infra_app/tests.py
