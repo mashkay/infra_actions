@@ -1,4 +1,4 @@
-name: Django CI
+name: Django from mash
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: 3.7
 
     steps:
     - uses: actions/checkout@v3
@@ -25,6 +25,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
+    - name: Test with flake8 and django tests
       run: |
-        python infra_project/manage.py test
+        # запуск проверки проекта по flake8
+        python -m flake8 
